@@ -7,7 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import "normalize.css";
 import "./index.css";
 
-const container = document.getElementById("root")!;
+const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
