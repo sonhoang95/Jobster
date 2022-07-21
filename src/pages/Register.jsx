@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Wrapper from "../assets/wrappers/RegisterPage";
 import { FormRow, Logo } from "../components";
 import { toast } from "react-toastify";
 import { loginUser, registerUser } from "../features/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
   name: "",
@@ -16,6 +17,16 @@ const Register = () => {
   const [values, setValues] = useState(initialState);
 
   const { isLoading, user } = useSelector((store) => store.user);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    }
+  }, [user, navigate]);
 
   const dispatch = useDispatch();
 
